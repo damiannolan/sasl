@@ -2,9 +2,9 @@
 
 ## Overview 
 
-This pkg is intended to be used as a complement to [Shopify/sarama](https://github.com/Shopify/sarama). It provides an implementation of the `sarama.AccessTokenProvider` interface to be employed by clients using the SASL/OAUTHBEARER mechanism for Apache Kafka.
+This package is intended to be used as a complement to [Shopify/sarama](https://github.com/Shopify/sarama). It provides an implementation of the `sarama.AccessTokenProvider` interface to be employed by clients using the SASL/OAUTHBEARER mechanism for Apache Kafka.
 
-This package leverages `golang/oauth2` and `golang/oauth2/clientcredentials` to perform the 2 legged client credentials flow to obtain an Access Token outside the context of a user. 
+The very popular `golang/oauth2` and `golang/oauth2/clientcredentials` are leveraged to perform the 2 legged client credentials flow to obtain an Access Token outside the context of a user. 
 
 ## Installation
 ```
