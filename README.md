@@ -1,32 +1,32 @@
 # SASL/OAUTHBEARER AccessTokenProvider
 
 ## Overview 
-This pkg is intended to be used as a complement to [Shopify's sarama library](https://github.com/Shopify/sarama). It provides an implementation of the sarama.AccessTokenProvider interface to be employed by clients using the SASL/OAUTHBEARER security protocol for Apache Kafka.
 
-This package leverages Golang's oauth2 and clientcredentials packages to perform the 2 legged client credentials flow to obtain an Access Token outside the context of a user. 
+This pkg is intended to be used as a complement to [Shopify/sarama](https://github.com/Shopify/sarama). It provides an implementation of the `sarama.AccessTokenProvider` interface to be employed by clients using the SASL/OAUTHBEARER mechanism for Apache Kafka.
+
+This package leverages `golang/oauth2` and `golang/oauth2/clientcredentials` to perform the 2 legged client credentials flow to obtain an Access Token outside the context of a user. 
+
+## Installation
+```
+go get github.com/damiannolan/sasl/oauthbearer
+```
 
 ## Usage
 
-```
-go get github.com/damiannolan/sasl
-```
-
-Import as:
+The appropriate configuration settings must be set on the `sarama.Config`. It is recommended to use this protocol over TLS.
 
 ```go
 import (
     "github.com/damiannolan/sasl/oauthbearer"
 )
-```
 
-The appropriate configuration settings must be set on the `sarama.Config`. It is recommended to use this protocol over TLS.
+/*******************************************/
 
-```go
 cfg := sarama.NewConfig()
 
 cfg.Net.SASL.Enable = true
 cfg.Net.SASL.Mechanism = sarama.SASLTypeOAuth
-cfg.Net.SASL.AccessTokenProvider = NewTokenProvider(clientID, clientSecret, tokenURL)
+cfg.Net.SASL.AccessTokenProvider = oauthbearer.NewTokenProvider(clientID, clientSecret, tokenURL)
 ```
 
 ## References
