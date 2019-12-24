@@ -17,6 +17,7 @@ Configure `sarama.Config` as desired for producer/consumer clients and enable SA
 
 ```go
 import (
+    "github.com/Shopify/sarama"
     "github.com/damiannolan/sasl/oauthbearer"
 )
 
