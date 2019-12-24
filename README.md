@@ -13,7 +13,7 @@ go get github.com/damiannolan/sasl/oauthbearer
 
 ## Usage
 
-Set the appropriate configuration settings as desired on `sarama.Config` and enable SASL/OAUTHBEARER. For production setups it is recommended to use this authentication mechanism over a secure connection - this can be achieved by setting `Net.TLS.Enable` to `true` and providing a `*tls.Config` through `Net.TLS.Config`.
+Configure `sarama.Config` as desired for producer/consumer clients and enable SASL/OAUTHBEARER with the appropriate settings. For production setups it is recommended to use this authentication mechanism over a secure connection. This can be achieved by setting `Net.TLS.Enable` to `true` and providing a `*tls.Config` through `Net.TLS.Config`.
 
 ```go
 import (
