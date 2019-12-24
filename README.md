@@ -1,4 +1,4 @@
-# SASL/OAUTHBEARER AccessTokenProvider
+# SASL/OAUTHBEARER Access Token Provider
 
 ## Overview 
 
@@ -20,13 +20,14 @@ import (
     "github.com/damiannolan/sasl/oauthbearer"
 )
 
-/*******************************************/
+func main() {
+    cfg := sarama.NewConfig()
 
-cfg := sarama.NewConfig()
-
-cfg.Net.SASL.Enable = true
-cfg.Net.SASL.Mechanism = sarama.SASLTypeOAuth
-cfg.Net.SASL.AccessTokenProvider = oauthbearer.NewTokenProvider(clientID, clientSecret, tokenURL)
+    cfg.Net.SASL.Enable = true
+    cfg.Net.SASL.Mechanism = sarama.SASLTypeOAuth
+    cfg.Net.SASL.AccessTokenProvider = oauthbearer.NewTokenProvider(clientID, clientSecret, tokenURL)
+    ...
+}
 ```
 
 ## References
