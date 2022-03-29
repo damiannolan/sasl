@@ -26,7 +26,7 @@ func main() {
 
     cfg.Net.SASL.Enable = true
     cfg.Net.SASL.Mechanism = sarama.SASLTypeOAuth
-    cfg.Net.SASL.AccessTokenProvider = oauthbearer.NewTokenProvider(clientID, clientSecret, tokenURL)
+    cfg.Net.SASL.TokenProvider = oauthbearer.NewTokenProvider(clientID, clientSecret, tokenURL)
     ...
 }
 ```
